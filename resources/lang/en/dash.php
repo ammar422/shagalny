@@ -1,0 +1,20 @@
+<?php
+return [
+	'users' 				=> 'Users',
+	'admins' 				=> 'Admins',
+	'admin_groups' 			=> 'Admin Groups',
+	'admin_grou p_roles' 	=> 'Admin Group Roles',
+	'codes' 				=> 'Activation Codes',
+	'code'         			=> 'Activation Code',
+	'duration'     			=> 'Activation Duration',
+	'daily'        			=> 'Daily',
+	'weekly'       			=> 'Weekly',
+	'monthly'      			=> 'Monthly',
+	'yearly'       			=> 'Yearly',
+	'life_time'    			=> 'Lifetime',
+	'expire_at'    			=> 'Expiration Date',
+	'status'    			=> 'Status',
+	'pending'           	=> 'Pending',
+	'ended'             	=> 'Ended',
+	'active'            	=> 'Active',
+];

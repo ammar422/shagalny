@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'add'               => 'Add',
+    'show'              => 'Show',
+    'edit'              => 'Edit',
+    'delete'            => 'Delete',
+    'force_delete'      => 'Force Delete',
+    'restore'           => 'Restore',
+    'group_name'        => 'Group Name',
+    'resource'          => 'Resource',
+    'roles'             => 'Roles',
+    'user_name'         => 'User Name',
+    'first_name'        => 'First Name',
+    'last_name'         => 'Last Name',
+    'account_status'    => 'Account Status',
+    'email_address'     => 'Email Address',
+    'password'          => 'Password',
+    'account_type'      => 'Account Type',
+    'user'              => 'User',
+    'admin'             => 'Admin',
+    'photo'             => 'Photo',
+    'group'             => 'Group',
+    'country'           => 'country',
+    'pending'           => 'Pending',
+    'active'            => 'Active',
+    'ban'               => 'Ban',
+];

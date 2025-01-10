@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'add'               => 'إضافة',
+    'show'              => 'عرض',
+    'edit'              => 'تعديل',
+    'delete'            => 'حذف',
+    'force_delete'      => 'حذف نهائي',
+    'restore'           => 'استعادة',
+    'group_name'        => 'اسم المجموعة',
+    'resource'          => 'Module',
+    'roles'             => 'الأدوار',
+    'user_name'         => 'اسم المستخدم',
+    'first_name'        => 'الاسم',
+    'last_name'         => 'اللقب/العائلة',
+    'account_status'    => 'حالة الحساب',
+    'email_address'     => 'البريد الإلكتروني',
+    'password'          => 'كلمة المرور',
+    'account_type'      => 'نوع الحساب',
+    'user'              => 'مستخدم',
+    'admin'             => 'مشرف',
+    'photo'             => 'الصورة الشخصية',
+    'group'             => 'المجموعة',
+    'country'           => 'الدولة',
+    'pending'           => 'معلق',
+    'active'            => 'نشط',
+    'ban'               => 'محظور',
+];

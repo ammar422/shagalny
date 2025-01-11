@@ -58,6 +58,10 @@ class CodesApiController extends \Lynx\Base\Api
         }
         $code->status = 'active';
         $code->save();
+        $user = auth('api')->user();
+        $user->code = $code->code;
+        $user->status = 'subscribed';
+        $user->save();
         return lynx()
             ->data('Subscription expiration date is ::> '  . Carbon::parse($code->expire_at)->format('Y-m-d'))
             ->message('The process was completed successfully and the service was activated')

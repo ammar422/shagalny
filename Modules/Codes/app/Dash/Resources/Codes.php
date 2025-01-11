@@ -105,9 +105,9 @@ class Codes extends Resource
 					'yearly' 	=> __('dash.yearly'),
 					'life_time' => __('dash.life_time'),
 				])
-				->rule('required', 'in:daily , weekly , monthly , yearly , life_time')
+				->rule('required', 'in:daily,weekly,monthly,yearly,life_time')
 				->column(4)
-				->f(true, ['column' => 3]),
+				->f(),
 
 			fullDateTime(__('dash.expire_at'), 'expire_at')
 				->onlyShow()
@@ -126,10 +126,11 @@ class Codes extends Resource
 					'pending'           => __('dash.pending'),
 					'ended'             => __('dash.ended'),
 					'active'          	=> __('dash.active'),
+					'suspended'         => __('dash.suspended'),
 				])
 				->column(4)
 				->f()
-				->rule('required', 'in:pending,ended,active'),
+				->rule('required', 'in:pending,ended,active,suspended'),
 
 
 		];

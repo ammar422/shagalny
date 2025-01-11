@@ -24,6 +24,7 @@ class UserFactory extends Factory
             'email'         => $this->faker->unique()->safeEmail,
             'mobile'        => fkr()->phoneNumber(),
             'account_type'  => 'user',
+            'status'        => 'unsubscribed',
             'password'      => bcrypt(123456),
             'first_name'    => 'first_name',
             'last_name'     => 'last_name',

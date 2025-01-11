@@ -25,4 +25,7 @@ return [
     'pending'           => 'Pending',
     'active'            => 'Active',
     'ban'               => 'Ban',
+    'status'            => 'Subscribtion Status',
+    'subscribed'        => 'subscribed',
+    'unsubscribed'      => 'unsubscribed',
 ];

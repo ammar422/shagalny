@@ -25,4 +25,7 @@ return [
     'pending'           => 'معلق',
     'active'            => 'نشط',
     'ban'               => 'محظور',
+    'status'            => 'حالة الاشتراك',
+    'subscribed'        => 'مشترك',
+    'unsubscribed'      => 'غير مشترك',
 ];

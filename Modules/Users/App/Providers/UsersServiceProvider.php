@@ -4,6 +4,8 @@ namespace Modules\Users\App\Providers;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Modules\Users\Console\CheckUserCodes;
+use Illuminate\Console\Scheduling\Schedule;
 
 class UsersServiceProvider extends ServiceProvider
 {
@@ -37,7 +39,9 @@ class UsersServiceProvider extends ServiceProvider
      */
     protected function registerCommands(): void
     {
-        // $this->commands([]);
+        $this->commands([
+            CheckUserCodes::class,
+        ]);
     }
 
     /**
@@ -45,10 +49,12 @@ class UsersServiceProvider extends ServiceProvider
      */
     protected function registerCommandSchedules(): void
     {
-        // $this->app->booted(function () {
-        //     $schedule = $this->app->make(Schedule::class);
-        //     $schedule->command('inspire')->hourly();
-        // });
+        $this->app->booted(function () {
+            $schedule = $this->app->make(Schedule::class);
+            // $schedule->command('inspire')->hourly();
+            $schedule->command('check:user-codes')->everyTwoMinutes();
+
+        });
     }
 
     /**

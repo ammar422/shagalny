@@ -18,7 +18,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string|int|null $reset_token
  * @property string $name
  */
-class User extends Authenticatable implements  JWTSubject
+class User extends Authenticatable implements JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
@@ -65,6 +65,8 @@ class User extends Authenticatable implements  JWTSubject
         'deleted_at',
         'account_status',
         'verification_code',
+        'status',
+        'code',
     ];
 
     /**

@@ -145,6 +145,15 @@ class Users extends Resource
                 ->f()
                 ->rule('required', 'in:pending,active,ban'),
 
+            select(__('users::main.status'), 'status')
+                ->options([
+                    'subscribed'    => __('users::main.subscribed'),
+                    'unsubscribed'  => __('users::main.unsubscribed'),
+                ])
+                ->onlyshow()
+                ->column(6)
+                ->f(),
+
             password()->make(__('users::main.password'), 'password')
                 ->whenStore(function () {
                     $password = request('password');

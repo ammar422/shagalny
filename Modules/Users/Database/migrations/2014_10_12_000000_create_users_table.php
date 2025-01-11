@@ -19,7 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('mobile')->nullable();
             $table->string('photo')->nullable();
-            $table->enum('gender', ['male', 'female'])->nullable();
+            $table->enum('status', ['subscribed', 'unsubscribed'])->default('unsubscribed');
+            $table->string('code')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->default('no_password_for_user')
                 ->nullable();

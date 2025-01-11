@@ -15,6 +15,7 @@ return [
 	'expire_at'    			=> 'Expiration Date',
 	'status'    			=> 'Status',
 	'pending'           	=> 'Pending',
+	'suspended'           	=> 'Suspended',
 	'ended'             	=> 'Ended',
 	'active'            	=> 'Active',
 ];

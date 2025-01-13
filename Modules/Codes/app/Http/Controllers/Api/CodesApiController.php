@@ -69,6 +69,8 @@ class CodesApiController extends \Lynx\Base\Api
             ->response();
     }
 
+
+
     public function checkSubscription(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -84,6 +86,7 @@ class CodesApiController extends \Lynx\Base\Api
                 ->status(422)
                 ->response();
         }
+        
         $user = User::where('email', $request->email)->first();
         $code = Code::where('code', $user->code)->first();
         $expire_at = $code->expire_at;

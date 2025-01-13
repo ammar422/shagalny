@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Modules\Codes\models\Code;
 use Illuminate\Support\Facades\Validator;
 use Modules\Codes\Policies\CodesApiPolicy;
+use Modules\Users\App\Models\User;
 
 class CodesApiController extends \Lynx\Base\Api
 {
@@ -66,5 +67,42 @@ class CodesApiController extends \Lynx\Base\Api
             ->data('Subscription expiration date is ::> '  . Carbon::parse($code->expire_at)->format('Y-m-d'))
             ->message('The process was completed successfully and the service was activated')
             ->response();
+    }
+
+    public function checkSubscription(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => ['required', 'exists:users,email']
+        ]);
+        if ($validator->fails()) {
+            $errors = $validator->errors();
+            return lynx()
+                ->data([
+                    'errors' => $errors,
+                    'status' => false,
+                ])
+                ->status(422)
+                ->response();
+        }
+        $user = User::where('email', $request->email)->first();
+        $code = Code::where('code', $user->code)->first();
+        $expire_at = $code->expire_at;
+
+        if ($user->status == 'subscribed') {
+            return lynx()->data([
+                'email'         => $user->email,
+                'status'        => $user->status,
+                'code'          => $user->code,
+                'expire_date'   => $expire_at
+            ])
+                ->message('this user is subscribed')->response();
+        }
+        if ($user->status == 'unsubscribed') {
+            return lynx()->data([
+                'email'         => $user->email,
+                'status'        => $user->status,
+            ])
+                ->message('this user is not subscribed')->response();
+        }
     }
 }

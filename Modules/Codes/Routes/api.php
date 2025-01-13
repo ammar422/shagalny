@@ -17,4 +17,5 @@ use Modules\Codes\App\Http\Controllers\Api\CodesApiController;
 route::middleware(['auth:api'])->group(function () {
 
     Route::post('charge', [CodesApiController::class, 'charge']);
+    Route::post('check-subscription', [CodesApiController::class, 'checkSubscription']);
 });

@@ -24,14 +24,15 @@ class Code extends Model
         static::creating(function ($model) {
 
             $model->code = $model->generateRandom15DigitNumber();
-            $model->expire_at = $model->determineExpirationDate($model->duration);
+            // $model->expire_at = $model->determineExpirationDate($model->duration);
         });
     }
     private  function generateRandom15DigitNumber()
     {
         return (string) rand(100000000000000, 999999999999999);
     }
-    private function determineExpirationDate($duration)
+    
+    public function determineExpirationDate($duration)
     {
         switch ($duration) {
             case 'daily':

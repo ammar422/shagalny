@@ -23,8 +23,6 @@ class CodeFactory extends Factory
         return [
             'code'          => $this->faker->unique()->numerify('###############'),
             'duration'      => $this->faker->randomElement(['daily', 'weekly', 'monthly', 'yearly', 'life_time']),
-            'status'        => $this->faker->randomElement(['pending', 'ended', 'active', 'suspended']),
-            'expire_at'     => $this->faker->dateTimeBetween('now', '+1 year'),
         ];
     }
 }

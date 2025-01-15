@@ -44,7 +44,7 @@ class CodesApiController extends \Lynx\Base\Api
                 ->response();
         }
         $code = Code::where('code', $request->code)->first();
-        if ($code->expire_at <= now()) {
+        if ($code->expire_at <= now() && $code->expire_at != null) {
             return lynx()
                 ->message('The code has expired')
                 ->status(400)
@@ -58,6 +58,7 @@ class CodesApiController extends \Lynx\Base\Api
                 ->response();
         }
         $code->status = 'active';
+        $code->expire_at = $code->determineExpirationDate($code->duration);
         $code->save();
         $user = auth('api')->user();
         $user->code = $code->code;
@@ -86,7 +87,7 @@ class CodesApiController extends \Lynx\Base\Api
                 ->status(422)
                 ->response();
         }
-        
+
         $user = User::where('email', $request->email)->first();
         $code = Code::where('code', $user->code)->first();
         $expire_at = $code->expire_at;

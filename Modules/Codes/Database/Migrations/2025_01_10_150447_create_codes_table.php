@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('code', 15)->unique();
             $table->enum('duration', ['daily', 'weekly', 'monthly', 'yearly', 'life_time']);
             $table->enum('status', ['suspended', 'pending', 'ended', 'active'])->default('pending');
-            $table->dateTime('expire_at');
+            $table->dateTime('expire_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

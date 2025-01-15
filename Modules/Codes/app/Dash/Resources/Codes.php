@@ -130,9 +130,7 @@ class Codes extends Resource
 				])
 				->column(4)
 				->f()
-				->rule('required', 'in:pending,ended,active,suspended'),
-
-
+				->rule('nullable', 'sometimes', 'in:pending,ended,active,suspended'),
 		];
 	}
 

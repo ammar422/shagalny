@@ -31,7 +31,7 @@ class CodesApiController extends \Lynx\Base\Api
     public function charge(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'code' => ['required', 'exists:codes,code']
+            'code' => ['required', 'exists:codes,code', 'unique:users,code']
         ]);
         if ($validator->fails()) {
             $errors = $validator->errors();
